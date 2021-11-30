@@ -37,9 +37,20 @@ const ArtCard = styled.div`
     box-shadow: 0px 0px 0px 1px rgb(0 0 0 / 15%), 0px 0px 0px rgb(0 0 0 / 20%);
 `;
 
-const UserInfo = styled.div``;
+const UserInfo = styled.div`
+    border-bottom: 1px solid rgb(0, 0, 0, 0.15);
+    padding: 12px 12px 16px;
+    word-wrap: break-word;
+    word-break: break-word;
+`;
 
-const CardBackground = styled.div``;
+const CardBackground = styled.div`
+    background: url("/project-img/card-bg.png");
+    background-position: center;
+    background-size: 462px;
+    height: 54px;
+    margin: -12px -12px 0px;
+`;
 
 const Photo = styled.div``;
 
