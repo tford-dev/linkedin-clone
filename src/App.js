@@ -10,9 +10,7 @@ function App() {
 			<Router>
 				<Switch>
 					<Route exact path="/" element={<Login />} />
-					<Route path="/home">
-						<Header />
-					</Route>
+					<Route path="/home" element={<Header />} />
 				</Switch>
 			</Router>
 		</div>

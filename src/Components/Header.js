@@ -1,9 +1,23 @@
 import styled from "styled-components";
 
-export default function Header() {
+const Header = (props) => {
     return (
-        <div>
-            Header Route
-        </div>
+        <Container>
+            <Content>
+                <Logo>
+                    <a href="/home">
+                        <img src="project-img/home-logo.png" alt="" />
+                    </a>
+                </Logo>
+            </Content>
+        </Container>
     )
 }
+
+export default Header;
+
+const Container = styled.div``
+
+const Content = styled.div``
+
+const Logo = styled.span``
