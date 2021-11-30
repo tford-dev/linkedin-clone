@@ -85,26 +85,6 @@ const SignIn = styled.a`
     }
 `;
 
-const Section = styled.section`
-    display: flex;
-    align-content: start;
-    min-height: 700px;
-    padding-bottom: 138px;
-    padding-top: 40px;
-    padding: 60px 0px;
-    position: relative;
-    flex-wrap: wrap;
-    width: 100%
-    max-width: 1128px;
-    align-items: center;
-    margin: auto;
-
-    @media (max-width: 768px) {
-        margin: auto;
-        min-height: 0px;
-    }
-`;
-
 const Hero = styled.div`
     width: 100%;
     h1 {
@@ -138,6 +118,26 @@ const Hero = styled.div`
     }
 `;
 
+const Section = styled.section`
+    display: flex;
+    align-content: start;
+    min-height: 700px;
+    padding-bottom: 138px;
+    padding-top: 40px;
+    padding: 60px 0px;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%
+    max-width: 1128px;
+    align-items: center;
+    margin: auto;
+
+    @media (max-width: 768px) {
+        margin: auto;
+        min-height: 0px;
+    }
+`;
+
 const Form = styled.div`
     margin-top: 100px;
     width: 408px;
@@ -155,7 +155,19 @@ const Google = styled.div`
     width: 100%;
     border-radius: 28px;
     box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 60%),
-        inset 0px 0px 0px 2px rgb(0 0 0 / 0%) inset 0px 0px 0px 1px rgb
-`
+        inset 0px 0px 0px 2px rgb(0 0 0 / 0%) inset 0px 0px 0px 1px rgb(0 0 0 / 0);
+
+    verticle-align: middle;
+    z-index: 0;
+    transition-duration: 167ms;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    &:hover {
+        background-color: rgba(207, 207, 207, 0.25);
+        color: rgba(0, 0, 0, 0.75);
+    }
+`;
+
+
 
 export default Login;
