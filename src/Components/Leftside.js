@@ -68,8 +68,21 @@ const Photo = styled.div`
     border-radius: 50%;
 `;
 
-const Link = styled.div``;
+const Link = styled.div`
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+`;
 
-const AddPhotoText = styled.div``;
+const AddPhotoText = styled.div`
+    color: #0a66c2;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 400;
+`;
+
+
 
 export default Leftside;
