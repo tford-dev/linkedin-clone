@@ -127,7 +127,7 @@ const Section = styled.section`
     padding: 60px 0px;
     position: relative;
     flex-wrap: wrap;
-    width: 100%
+    width: 100%;
     max-width: 1128px;
     align-items: center;
     margin: auto;
@@ -157,7 +157,7 @@ const Google = styled.div`
     box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 60%),
         inset 0px 0px 0px 2px rgb(0 0 0 / 0%) inset 0px 0px 0px 1px rgb(0 0 0 / 0);
 
-    verticle-align: middle;
+    vertical-align: middle;
     z-index: 0;
     transition-duration: 167ms;
     font-size: 20px;
