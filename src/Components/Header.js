@@ -6,17 +6,70 @@ const Header = (props) => {
             <Content>
                 <Logo>
                     <a href="/home">
-                        <img src="project-img/home-logo.png" alt="" />
+                        <img src="project-img/home-logo.png" alt="home logo" />
                     </a>
                 </Logo>
+
                 <Search>
                     <div>
                         <input type="text" placeholder="Search" />
                     </div>
                     <SearchIcon>
-                        <img src="project-img/search-icon.png" alt="" />
+                        <img src="project-img/search-icon.png" alt="search icon" />
                     </SearchIcon>
                 </Search>
+
+                <Nav>
+                    <NavListWrap>
+                        <NavList className="active">
+                            <a>
+                                <img src="project-img/nav-home.png" alt="nav home" />
+                                <span>Home</span>
+                            </a>
+                        </NavList>
+
+                        <NavList>
+                            <a>
+                                <img src="project-img/nav-network.png" alt="nav network" />
+                                <span>My Network</span>
+                            </a>
+                        </NavList>
+
+                        <NavList>
+                            <a>
+                                <img src="project-img/nav-jobs.png" alt="nav jobs" />
+                                <span>Jobs</span>
+                            </a>
+                        </NavList>
+
+                        <NavList>
+                            <a>
+                                <img src="project-img/nav-messaging.png" alt="nav messaging" />
+                                <span>Messaging</span>
+                            </a>
+                        </NavList>
+
+                        <NavList>
+                            <a>
+                                <img src="project-img/nav-notifications.png" alt="nav notifications" />
+                                <span>notifications</span>
+                            </a>
+                        </NavList>
+
+                        <User>
+                            <a>
+                                <img src="project-img/user.png" alt="user" />
+                                <span>Me</span>
+                                <img src="project-img/down-icon.png" alt="down" />
+                            </a>
+
+                            <SignOut>
+                                <a>Sign Out</a>
+                            </SignOut>
+                        </User>
+                    </NavListWrap>
+                </Nav>
+
             </Content>
         </Container>
     )
@@ -85,3 +138,13 @@ const SearchIcon = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+const Nav = styled.nav``;
+
+const NavListWrap = styled.ul``;
+
+const NavList = styled.li``;
+
+const SignOut = styled.div``;
+
+const User = styled(NavList)``;
