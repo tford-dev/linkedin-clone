@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 
 const Header = (props) => {
@@ -256,7 +257,7 @@ const User = styled(NavList)`
 `;
 
 const Work = styled(User)`
-    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08)
 `
 
 export default Header;
