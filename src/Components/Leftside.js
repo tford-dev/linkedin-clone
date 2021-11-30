@@ -33,7 +33,23 @@ function Leftside() {
                 </Item>
             </ArtCard>
 
-
+            <CommunityCard>
+                <a>
+                    <span>Groups</span>
+                </a>
+                <a>
+                    <span>
+                        Events
+                        <img src="/project-img/plus-icon.png" alt="plus-icon" />
+                    </span>
+                </a>
+                <a>
+                    <span>Follow Hashtags</span>
+                </a>
+                <a>
+                    <span>Discover more</span>
+                </a>
+            </CommunityCard>
         </Container>
     )
 }
@@ -157,8 +173,36 @@ const Item = styled.a`
     }
 `;
 
-//const CommunityCard = styled(ArtCard)``;
+const CommunityCard = styled(ArtCard)`
+    padding: 8px 0px 0px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    a {
+        color: #000;
+        padding: 4px 12px 4px 12px;
+        font-size: 12px;
 
+        &:hover {
+            color: #0a66c2;
+        }
 
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &:last-child {
+            color: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            border-top: 1px solid #d6cec2;
+            padding: 12px;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.08);
+            }
+        }
+    }
+`;
 
 export default Leftside;
