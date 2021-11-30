@@ -27,6 +27,12 @@ const Container = styled.div`
     z-index: 100;
 `
 
-const Content = styled.div``
+const Content = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    min-height: 100%;
+    max-width: 1128px;
+`
 
 const Logo = styled.span``
