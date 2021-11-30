@@ -139,7 +139,17 @@ const SearchIcon = styled.div`
     align-items: center;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+    margin-left: auto;
+    display: block;
+    @media (max-width: 768px) {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background: white;
+        width: 100%;
+    }
+`;
 
 const NavListWrap = styled.ul``;
 
