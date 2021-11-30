@@ -16,7 +16,24 @@ function Leftside() {
                         <AddPhotoText>Add a photo</AddPhotoText>
                     </a>
                 </UserInfo>
+                <Widget>
+                    <a>
+                        <div>
+                            <span>Connections</span>
+                            <span>Grow your network</span>
+                        </div>
+                        <img src="/project-img/widget-icon.png" alt="widget icon" />
+                    </a>
+                </Widget>
+                <Item>
+                    <span>
+                        <img src="/project-img/item-icon.png" alt="item-icon" />
+                        My Items
+                    </span>
+                </Item>
             </ArtCard>
+
+
         </Container>
     )
 }
@@ -82,6 +99,12 @@ const AddPhotoText = styled.div`
     line-height: 1.33;
     font-weight: 400;
 `;
+
+const Widget = styled.div``;
+
+const Item = styled.a``;
+
+//const CommunityCard = styled(ArtCard)``;
 
 
 
