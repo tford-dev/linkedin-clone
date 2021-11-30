@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
 
-function Main() {
+function Main(props) {
     return (
-        <div>
-            
-        </div>
+        <Container>Main</Container>
     )
-}
+};
 
-export default Main
+const Container = styled.div`
+    grid-area: main;
+`
+
+export default Main;

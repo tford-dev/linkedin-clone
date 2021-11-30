@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
 import styled from "styled-components";
-import Header from "./Header"
+import Header from "./Header";
+import Main from "./Main";
+import Leftside from './Leftside';
+import Rightside from './Rightside';
 
 function Home(props) {
     return (
@@ -15,7 +18,9 @@ function Home(props) {
                 </p>
             </Section>
             <Layout>
-
+                <Leftside />
+                <Main />
+                <Rightside />
             </Layout>
         </Container>
     )
