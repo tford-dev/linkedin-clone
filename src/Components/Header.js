@@ -9,6 +9,14 @@ const Header = (props) => {
                         <img src="project-img/home-logo.png" alt="" />
                     </a>
                 </Logo>
+                <Search>
+                    <div>
+                        <input type="text" placeholder="Search" />
+                    </div>
+                    <SearchIcon>
+                        <img src="project-img/search-icon.png" alt="" />
+                    </SearchIcon>
+                </Search>
             </Content>
         </Container>
     )
@@ -39,3 +47,7 @@ const Logo = styled.span`
     margin-right: 8px;
     font-size: 0px;
 `
+
+const Search = styled.div``;
+
+const SearchIcon = styled.div``;
