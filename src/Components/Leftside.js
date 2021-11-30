@@ -52,7 +52,21 @@ const CardBackground = styled.div`
     margin: -12px -12px 0px;
 `;
 
-const Photo = styled.div``;
+const Photo = styled.div`
+    box-shadow: none;
+    background-image: url("/project-img/photo.png");
+    width: 72px;
+    height: 72px;
+    box-sizing: border-box;
+    background-clip: content-border-box;
+    background-color: white;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    margin: -38px auto 12px;
+    border-radius: 50%;
+`;
 
 const Link = styled.div``;
 
