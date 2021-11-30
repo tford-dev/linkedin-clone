@@ -209,6 +209,17 @@ const NavList = styled.li`
     }
 `;
 
-const SignOut = styled.div``;
+const SignOut = styled.div`
+    position: absolute;
+    top: 45px;
+    background: white;
+    border-radius: 0px 0px 5px 5px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    transition-duration: 167ms;
+    text-align: center;
+    display: none;
+`;
 
 const User = styled(NavList)``;
