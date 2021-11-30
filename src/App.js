@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes as Switch} from "react-router-dom";
 import './App.css';
+import Header from './Components/Header';
 import Login from './Components/Login';
 
 function App() {
@@ -8,7 +9,10 @@ function App() {
 		<div>
 			<Router>
 				<Switch>
-					<Route exact path="Login" element={<Login />} />
+					<Route exact path="/" element={<Login />} />
+					<Route path="/home">
+						<Header />
+					</Route>
 				</Switch>
 			</Router>
 		</div>
