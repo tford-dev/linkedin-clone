@@ -35,4 +35,7 @@ const Content = styled.div`
     max-width: 1128px;
 `
 
-const Logo = styled.span``
+const Logo = styled.span`
+    margin-right: 8px;
+    font-size: 0px;
+`
