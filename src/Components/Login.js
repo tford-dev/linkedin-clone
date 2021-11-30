@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Login = (props) => {
     return (
         <Container>
-            <Nav>
+            <Nav className="login__navbar">
                 <a href="/">
                     <img src="project-img/login-logo.png" alt="login-img"/>
                 </a>
@@ -13,6 +13,20 @@ const Login = (props) => {
                     <SignIn>Sign In</SignIn>
                 </div>
             </Nav>
+
+            <Section>
+                {/*Hero = "Large web banner"*/}
+                <Hero>
+                    <h1>Welcome to your professional community</h1>
+                    <img src="project-img/login-hero.png" alt="hero-banner" />
+                </Hero>
+                <Form>
+                    <Google>
+                        <img src="project-img/google.png" alt="google logo" />
+                        Sign in with Google
+                    </Google>
+                </Form>
+            </Section>
         </Container>
     )
 }
@@ -23,7 +37,7 @@ const Container= styled.div`
 const Nav = styled.nav`
     max-width: 1128px;
     margin: auto;
-    paddingL 12px 0 16px;
+    padding: 12px 0px 16px;
     display: flex;
     align-items: center;
     position: relative;
@@ -34,7 +48,7 @@ const Nav = styled.nav`
         width: 135px;
         height: 34px;
         @media (max-width: 768px) {
-            padding: 0 5px;
+            padding: 0px 5px;
         }
     }
 `;
@@ -70,5 +84,78 @@ const SignIn = styled.a`
         text-decoration: none;
     }
 `;
+
+const Section = styled.section`
+    display: flex;
+    align-content: start;
+    min-height: 700px;
+    padding-bottom: 138px;
+    padding-top: 40px;
+    padding: 60px 0px;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%
+    max-width: 1128px;
+    align-items: center;
+    margin: auto;
+
+    @media (max-width: 768px) {
+        margin: auto;
+        min-height: 0px;
+    }
+`;
+
+const Hero = styled.div`
+    width: 100%;
+    h1 {
+        padding-bottom: 0px;
+        width: 55%;
+        font-size: 56px;
+        color: #2977c9;
+        font-weight: 200;
+        line-height: 70px;
+        @media (max-width: 768px){
+            text-align: center;
+            font-size: 20px;
+            width: 100%;
+            line-height: 2;
+        }
+    }
+
+    img {
+        /* z-index: -1; */
+        width: 700px;
+        height: 670px;
+        position: absolute;
+        bottom: -2px;
+        right: -150px;
+        @media (max-width: 768px) {
+            top: 230px;
+            width: 100%;
+            position: initial;
+            height: 100%;
+        }
+    }
+`;
+
+const Form = styled.div`
+    margin-top: 100px;
+    width: 408px;
+    @media (max-width: 768px){
+        margin-top: 20px;
+    }
+`
+
+const Google = styled.div`
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    align-items: center;
+    height: 56px;
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 60%),
+        inset 0px 0px 0px 2px rgb(0 0 0 / 0%) inset 0px 0px 0px 1px rgb
+`
 
 export default Login;
