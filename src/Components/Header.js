@@ -67,15 +67,22 @@ const Header = (props) => {
                                 <a>Sign Out</a>
                             </SignOut>
                         </User>
+
+                        <Work>
+                            <a>
+                                <img src="project-img/nav-work.png" alt="Nav Work" />
+                                <span>
+                                    Work
+                                    <img src="project-img/down-icon.png" alt="Down" />
+                                </span>
+                            </a>
+                        </Work>
                     </NavListWrap>
                 </Nav>
-
             </Content>
         </Container>
     )
 }
-
-export default Header;
 
 const Container = styled.div`
     background-color: white;
@@ -222,4 +229,34 @@ const SignOut = styled.div`
     display: none;
 `;
 
-const User = styled(NavList)``;
+const User = styled(NavList)`
+    a > svg {
+        width: 24px;
+        border-radius: 50%;
+    }
+
+    a > img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        ${SignOut} {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+`;
+
+const Work = styled(User)`
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+`
+
+export default Header;
