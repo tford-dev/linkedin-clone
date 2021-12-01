@@ -7,7 +7,7 @@ function Rightside() {
             <FollowCard>
                 <Title>
                     <h2>Add to your feed</h2>
-                    <img src="/project-img/feed-icon.svg" alt="" />
+                    <img src="/project-img/feed-icon.svg" alt="feed icon" />
                 </Title>
 
                 <FeedList>
@@ -30,7 +30,15 @@ function Rightside() {
                         </div>
                     </li>
                 </FeedList>
+
+                <Recommendation>
+                    View all recommendations
+                </Recommendation>
             </FollowCard>
+
+            <BannerCard>
+                <img src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg" alt="ad"/>
+            </BannerCard>
         </Container>
     )
 }
@@ -99,6 +107,20 @@ const Avatar = styled.div`
     width: 48px;
     height: 48px;
     margin-right: 8px;
+`;
+
+const Recommendation = styled.a`
+    color: #0a66c2;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+`;
+
+const BannerCard = styled(FollowCard)`
+    img {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export default Rightside
