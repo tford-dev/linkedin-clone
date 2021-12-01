@@ -6,7 +6,7 @@ const Login = (props) => {
         <Container>
             <Nav className="login__navbar">
                 <a href="/">
-                    <img src="project-img/login-logo.png" alt="login-img"/>
+                    <img src="project-img/login-logo.svg" alt="login-img"/>
                 </a>
                 <div>
                     <Join>Join Now</Join>
@@ -18,11 +18,11 @@ const Login = (props) => {
                 {/*Hero = "Large web banner"*/}
                 <Hero>
                     <h1>Welcome to your professional community</h1>
-                    <img src="project-img/login-hero.png" alt="hero-banner" />
+                    <img src="project-img/login-hero.svg" alt="hero-banner" />
                 </Hero>
                 <Form>
                     <Google>
-                        <img src="project-img/google.png" alt="google logo" />
+                        <img src="project-img/google.svg" alt="google logo" />
                         Sign in with Google
                     </Google>
                 </Form>

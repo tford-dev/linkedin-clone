@@ -22,12 +22,12 @@ function Leftside() {
                             <span>Connections</span>
                             <span>Grow your network</span>
                         </div>
-                        <img src="/project-img/widget-icon.png" alt="widget icon" />
+                        <img src="/project-img/widget-icon.svg" alt="widget icon" />
                     </a>
                 </Widget>
                 <Item>
                     <span>
-                        <img src="/project-img/item-icon.png" alt="item-icon" />
+                        <img src="/project-img/item-icon.svg" alt="item-icon" />
                         My Items
                     </span>
                 </Item>
@@ -40,7 +40,7 @@ function Leftside() {
                 <a>
                     <span>
                         Events
-                        <img src="/project-img/plus-icon.png" alt="plus-icon" />
+                        <img src="/project-img/plus-icon.svg" alt="plus-icon" />
                     </span>
                 </a>
                 <a>
@@ -78,7 +78,7 @@ const UserInfo = styled.div`
 `;
 
 const CardBackground = styled.div`
-    background: url("/project-img/card-bg.png");
+    background: url("/project-img/card-bg.svg");
     background-position: center;
     background-size: 462px;
     height: 54px;
@@ -87,11 +87,11 @@ const CardBackground = styled.div`
 
 const Photo = styled.div`
     box-shadow: none;
-    background-image: url("/project-img/photo.png");
+    background-image: url("/project-img/photo.svg");
     width: 72px;
     height: 72px;
     box-sizing: border-box;
-    background-clip: content-border-box;
+    background-clip: content-box;
     background-color: white;
     background-position: center;
     background-size: 60%;
@@ -142,7 +142,7 @@ const Widget = styled.div`
                 &:first-child {
                     color: rgba(0, 0, 0, 0.6);
                 }
-                &:nth-:nth-child(2){
+                &:nth-child(2){
                     color: rgba(0, 0, 0, 1);
                 }
             }

@@ -7,7 +7,7 @@ const Header = (props) => {
             <Content>
                 <Logo>
                     <a href="/home">
-                        <img src="project-img/home-logo.png" alt="home logo" />
+                        <img src="project-img/home-logo.svg" alt="home logo" />
                     </a>
                 </Logo>
 
@@ -16,7 +16,7 @@ const Header = (props) => {
                         <input type="text" placeholder="Search" />
                     </div>
                     <SearchIcon>
-                        <img src="project-img/search-icon.png" alt="search icon" />
+                        <img src="project-img/search-icon.svg" alt="search icon" />
                     </SearchIcon>
                 </Search>
 
@@ -24,44 +24,44 @@ const Header = (props) => {
                     <NavListWrap>
                         <NavList className="active">
                             <a>
-                                <img src="project-img/nav-home.png" alt="nav home" />
+                                <img src="project-img/nav-home.svg" alt="nav home" />
                                 <span>Home</span>
                             </a>
                         </NavList>
 
                         <NavList>
                             <a>
-                                <img src="project-img/nav-network.png" alt="nav network" />
+                                <img src="project-img/nav-network.svg" alt="nav network" />
                                 <span>My Network</span>
                             </a>
                         </NavList>
 
                         <NavList>
                             <a>
-                                <img src="project-img/nav-jobs.png" alt="nav jobs" />
+                                <img src="project-img/nav-jobs.svg" alt="nav jobs" />
                                 <span>Jobs</span>
                             </a>
                         </NavList>
 
                         <NavList>
                             <a>
-                                <img src="project-img/nav-messaging.png" alt="nav messaging" />
+                                <img src="project-img/nav-messaging.svg" alt="nav messaging" />
                                 <span>Messaging</span>
                             </a>
                         </NavList>
 
                         <NavList>
                             <a>
-                                <img src="project-img/nav-notifications.png" alt="nav notifications" />
+                                <img src="project-img/nav-notifications.svg" alt="nav notifications" />
                                 <span>notifications</span>
                             </a>
                         </NavList>
 
                         <User>
                             <a>
-                                <img src="project-img/user.png" alt="user" />
+                                <img src="project-img/user.svg" alt="user" />
                                 <span>Me</span>
-                                <img src="project-img/down-icon.png" alt="down" />
+                                <img src="project-img/down-icon.svg" alt="down" />
                             </a>
 
                             <SignOut>
@@ -71,10 +71,10 @@ const Header = (props) => {
 
                         <Work>
                             <a>
-                                <img src="project-img/nav-work.png" alt="Nav Work" />
+                                <img src="project-img/nav-work.svg" alt="Nav Work" />
                                 <span>
                                     Work
-                                    <img src="project-img/down-icon.png" alt="Down" />
+                                    <img src="project-img/down-icon.svg" alt="Down" />
                                 </span>
                             </a>
                         </Work>
