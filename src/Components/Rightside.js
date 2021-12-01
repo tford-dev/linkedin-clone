@@ -91,6 +91,14 @@ const FeedList = styled.ul`
     }
 `;
 
-const Avatar = styled.div``;
+const Avatar = styled.div`
+    background-image: url("https://static-exp1.licdn.com/sc/h/1b4vl1r54ijmrmcyxzoidwmxs");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
+`;
 
 export default Rightside
