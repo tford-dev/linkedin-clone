@@ -6,7 +6,7 @@ const Header = (props) => {
         <Container>
             <Content>
                 <Logo>
-                    <a href="/home">
+                    <a href="/">
                         <img src="project-img/home-logo.svg" alt="home logo" />
                     </a>
                 </Logo>
