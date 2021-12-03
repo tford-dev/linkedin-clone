@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { connect } from 'react-redux';
 import Header from "./Header";
 import Main from "./Main";
 import Leftside from './Leftside';
 import Rightside from './Rightside';
 
 function Home(props) {
+    let navigate = useNavigate();
     return (
         <Container>
+            {!props.user && navigate('/')}
             <Header />
             <Section>
                 <h5>
@@ -80,4 +84,10 @@ const Layout = styled.div`
     }
 `;
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user,
+    }
+}
+
+export default connect(mapStateToProps)(Home);
