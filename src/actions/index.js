@@ -8,10 +8,10 @@ export const setUser = (payload) => ({
 
 export const setLoading = (status) => ({
     type: SET_LOADING_STATUS,
-    user: payload,
+    status: status,
 });
 
-export const setArticles = (payload) => ({
+export const getArticles = (payload) => ({
     type: GET_ARTCICLES,
     payload: payload,
 });
@@ -101,4 +101,17 @@ export const postArticleAPI = (payload) => {
         dispatch(setLoading(false));
     }
 };
+}
+
+export const getArticlesAPI = () =>{
+    return (dispatch) => {
+        let payload;
+
+        db.collection('articles')
+            .orderBy("actor.date", "desc")
+            .onSnapshot((snapshot)=> {
+                payload = snapshot.docs.map((doc) => doc.data());
+                dispatch(getArticles(payload));
+            })
+    }
 }
