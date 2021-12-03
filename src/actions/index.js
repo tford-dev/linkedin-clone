@@ -30,3 +30,16 @@ export const getUserAuth = () =>{
         });
     };
 }
+
+export const signOutAPI = () => {
+    return(dispatch) => {
+        auth
+            .signOut()
+            .then(()=> {
+                dispatch(setUser(null));
+            })
+            .catch((error)=> {
+                console.log(error.message);
+            });
+    };
+}
