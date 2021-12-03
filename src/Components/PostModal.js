@@ -58,7 +58,12 @@ const PostModal = (props) =>{
             {props.showModal === "open" &&
                 <Container>
                     <Content>
-                    
+                        <Header>
+                            <h2>Create a post</h2>
+                            <button onClick={(event)=> reset(event)}>
+                                <i class="far fa-window-close"></i>
+                            </button>
+                        </Header>
                     </Content>
                 </Container>
             }
@@ -89,6 +94,32 @@ const Content = styled.div`
     flex-direction: column;
     top: 32px;
     margin: 0 auto;
+`;
+
+const Header = styled.div`
+    display: block;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.6);
+    line-height: 1.5;
+    color: rgba(0,0,0,0.6);
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        height: 48px;
+        width: 40px;
+        min-width: auto;
+        color: rgba(0,0,0,0.15);
+
+        i {
+            pointer-events: none;
+        }
+    }
 `;
 
 export default PostModal
