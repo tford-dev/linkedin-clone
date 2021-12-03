@@ -23,7 +23,7 @@ const PostModal = (props) =>{
     };
 
     const switchAssetArea = (area) => {
-        setSharedImage('');
+        setSharedImg('');
         setVideoLink('');
         setAssetArea(area);
     };
@@ -64,6 +64,16 @@ const PostModal = (props) =>{
                                 <i class="far fa-window-close"></i>
                             </button>
                         </Header>
+
+                        <SharedContent>
+                            <UserInfo>
+                                {props.user.photoURL ? (
+                                    <img src={props.user.photoURL} />
+                                ) : (
+                                    <img src="/project-img/user.svg" alt="user" />
+                                )}  
+                            </UserInfo>
+                        </SharedContent>
                     </Content>
                 </Container>
             }
@@ -121,5 +131,36 @@ const Header = styled.div`
         }
     }
 `;
+
+const SharedContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    vertical-align: baseline;
+    background: transparent;
+    padding: 8px 12px;
+`;
+
+const UserInfo = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+
+    svg, img {
+        width: 48px;
+        height: 48px;
+        background-clip: content-box;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    span {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+`
 
 export default PostModal
