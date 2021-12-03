@@ -55,9 +55,40 @@ const PostModal = (props) =>{
 
     return (
         <div>
-            
+            {props.showModal === "open" &&
+                <Container>
+                    <Content>
+                    
+                    </Content>
+                </Container>
+            }
         </div>
     )
 }
+
+const Container = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+`;
+
+const Content = styled.div`
+    width: 100%;
+    max-width: 552px;
+    background-color: #fff;
+    max-height: 90%;
+    overflow: initial;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    top: 32px;
+    margin: 0 auto;
+`;
 
 export default PostModal
