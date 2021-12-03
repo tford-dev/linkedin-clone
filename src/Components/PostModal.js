@@ -118,6 +118,29 @@ const PostModal = (props) =>{
                                     )}
                             </Editor>
                         </SharedContent>
+
+                        <SharedCreation>
+                            <AttachAssets>
+                                <AssetButton onClick={()=> switchAssetArea('image')}>
+                                    <img src="project-img/shared-img.png" alt="shared" />
+                                </AssetButton>
+                                <AssetButton onClick={()=> switchAssetArea('media')}>
+                                    <i class="fas fa-video"></i>
+                                </AssetButton>
+                            </AttachAssets>
+                            
+                            <ShareComment>
+                                <AssetButton>
+                                    <i class="far fa-comment"></i>
+                                    Anyone
+                                </AssetButton>
+                            </ShareComment>
+
+                            <PostButton
+                                disabled = {!editorText ? true : false}
+                                onClick = {(event)=> postArticle(event)} >
+                            </PostButton>
+                        </SharedCreation>
                     </Content>
                 </Container>
             }
@@ -204,6 +227,57 @@ const UserInfo = styled.div`
         font-weight: 600;
         font-size: 16px;
         line-height: 1.5;
+    }
+`;
+
+const SharedCreation = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px 12px 16px;
+`;
+
+const AssetButton = styled.button`
+    display: flex;
+    align-items: center;
+    height: 40px;
+    min-width: auto;
+    color: rgba(0,0,0,0.5);
+`;
+
+const AttachAssets = styled.div`
+    align-items: center;
+    display: flex;
+    padding-right: 8px;
+
+    ${AssetButton}{
+        width: 40px;
+    }
+`;
+
+const ShareComment = styled.div`
+    padding-left: 8px;
+    margin-right: auto;
+    border-left: 1px solid rgba(0,0,0,0.15);
+
+    ${AssetButton}{
+        img, i {
+            margin-right: 5px;
+        }
+    }
+`;
+
+const PostButton = styled.button`
+    min-width: 60px;
+    border-radius: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: ${props=> props.disabled ? 'rgba(0,0,0,0.5)' : '#0a66c2'};
+    color: ${props => props.disabled ? 'rgba(1,1,1,0.2' : '#fff'};
+
+    &:hover {
+        background: ${props => props.disabled ? 'rgba(0,0,0,0.08)' : '#004182'};
+        cursor: ${props=>props.disabled ? 'none' : 'pointer'};
+        outline: none !important;
     }
 `;
 
