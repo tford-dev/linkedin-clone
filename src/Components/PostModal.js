@@ -73,6 +73,50 @@ const PostModal = (props) =>{
                                     <img src="/project-img/user.svg" alt="user" />
                                 )}  
                             </UserInfo>
+
+                            <Editor>
+                                <textarea 
+                                    value={editorText}
+                                    onChange={e => setEditorText(e.target.value)}
+                                    placeholder="What do you like to talk aboue?"
+                                    onFocus={true}
+                                />
+                                {
+                                    assetArea === 'image' ? (
+                                        <UploadImage>
+                                            <input
+                                                type="file"
+                                                accept='image/gif, image/jgp, image/png, image/jpeg'
+                                                id="file"
+                                                style={{display: "none"}}
+                                                onChange = {handleChange}
+                                            />
+                                            <p>
+                                                <label
+                                                    htmlFor="file"
+                                                    style={{cursor: "pointer"}}
+                                                >
+                                                    Select an image
+                                                </label>
+                                            </p>
+                                        {sharedImg && <img src={URL.createObjectURL(sharedImage)} />}
+                                        </UploadImage>
+                                    ) : (
+                                        assetArea === 'media' && (
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Please upload a video"
+                                                    value={videoLink}
+                                                    onChange = {e => setVideoLink(e.target.value)}
+                                                />
+                                                {videoLink && (
+                                                    <ReactPlayer width={"100%"} url={videoLink} />
+                                                )}
+                                            </div>
+                                        )
+                                    )}
+                            </Editor>
                         </SharedContent>
                     </Content>
                 </Container>
@@ -161,6 +205,31 @@ const UserInfo = styled.div`
         font-size: 16px;
         line-height: 1.5;
     }
-`
+`;
+
+const Editor = styled.div`
+    padding: 12px 24px;
+    textarea {
+        width: 100%;
+        min-height: 100px;
+        resize: none;
+    }
+
+    input{
+        width: 100%;
+        height: 35px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+`;
+
+const UploadImage = styled.div`
+    text-align: center;
+
+    img {
+        width: 100%;
+    }
+`;
+
 
 export default PostModal
