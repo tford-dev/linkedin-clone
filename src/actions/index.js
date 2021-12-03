@@ -1,10 +1,19 @@
-import { createDispatchHook } from "react-redux";
-import  {auth, provider, storage} from "../firebase";
-import {SET_USER} from "./actionType";
+import  {auth, provider, storage, db} from "../firebase";
+import {SET_USER, SET_LOADING_STATUS, GET_ARTCICLES} from "./actionType";
 
 export const setUser = (payload) => ({
     type: SET_USER,
     user: payload,
+});
+
+export const setLoading = (status) => ({
+    type: SET_LOADING_STATUS,
+    user: payload,
+});
+
+export const setArticles = (payload) => ({
+    type: GET_ARTCICLES,
+    payload: payload,
 });
 
 export const signInAPI = () => {

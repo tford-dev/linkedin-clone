@@ -2,7 +2,7 @@ import {React, useState} from 'react';
 import styled from 'styled-components';
 import ReactPlayer  from 'react-player';
 import { connect } from 'react-redux';
-import firebase from 'firebase';
+import firebase from '@firebase/app-compat';
 import {postArticleAPI} from '../actions';
 
 
@@ -35,7 +35,7 @@ const PostModal = (props) =>{
         }
 
         const payload = {
-            image: sharedImage,
+            image: sharedImg,
             video: videoLink,
             user: props.user,
             description: editorText,
@@ -47,7 +47,7 @@ const PostModal = (props) =>{
 
     const reset = (e) => {
         setEditorText("");
-        setSharedImage('');
+        setSharedImg('');
         setVideoLink('');
         setAssetArea('');
         props.handleClick(e);
@@ -99,7 +99,7 @@ const PostModal = (props) =>{
                                                     Select an image
                                                 </label>
                                             </p>
-                                        {sharedImg && <img src={URL.createObjectURL(sharedImage)} />}
+                                        {sharedImg && <img src={URL.createObjectURL(sharedImg)} />}
                                         </UploadImage>
                                     ) : (
                                         assetArea === 'media' && (
@@ -306,4 +306,14 @@ const UploadImage = styled.div`
 `;
 
 
-export default PostModal
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    postArticle: (payload) => dispatch(postArticleAPI(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostModal);
