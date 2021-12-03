@@ -2,16 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import { signInAPI } from '../actions';
-import {Redirect} from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+    let navigate = useNavigate();
     return (
         <Container>
-            {
-                props.user &&
-                <Redirect to="/home" />
-
-            }
+            {props.user && navigate('home')}
             <Nav className="login__navbar">
                 <a href="/">
                     <img src="project-img/login-logo.svg" alt="login-img"/>
@@ -177,7 +174,9 @@ const Google = styled.div`
 `;
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+       user: state.userState.user, 
+    };
 }
 
 const mapDispatchToProps = (dispatch) => ({
