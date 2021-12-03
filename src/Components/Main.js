@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import PostModal from "./PostModal";
 import { connect } from 'react-redux';
 
 function Main(props) {
