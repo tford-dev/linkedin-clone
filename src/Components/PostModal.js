@@ -78,8 +78,8 @@ const PostModal = (props) =>{
                                 <textarea 
                                     value={editorText}
                                     onChange={e => setEditorText(e.target.value)}
-                                    placeholder="What do you like to talk aboue?"
-                                    onFocus={true}
+                                    placeholder="What do you want to talk aboue?"
+                                    autoFocus={true}
                                 />
                                 {
                                     assetArea === 'image' ? (
@@ -167,6 +167,7 @@ const Content = styled.div`
     max-height: 90%;
     overflow: initial;
     border-radius: 5px;
+    position: relative;
     display: flex;
     flex-direction: column;
     top: 32px;
@@ -188,7 +189,7 @@ const Header = styled.div`
     align-items: center;
 
     button {
-        height: 48px;
+        height: 480px;
         width: 40px;
         min-width: auto;
         color: rgba(0,0,0,0.15);
@@ -227,6 +228,7 @@ const UserInfo = styled.div`
         font-weight: 600;
         font-size: 16px;
         line-height: 1.5;
+        margin-left: 5px;
     }
 `;
 

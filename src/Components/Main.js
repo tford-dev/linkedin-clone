@@ -1,9 +1,28 @@
-import React from 'react';
+import {React, useState} from 'react';
 import styled from "styled-components";
 import PostModal from "./PostModal";
 import { connect } from 'react-redux';
 
 function Main(props) {
+    const [showModal, setShowModal] = useState("close");
+    const handleClick = (e) => {
+        e.preventDefault();
+        if(e.target !== e.currentTarget) {
+            return;
+        }
+
+        switch(showModal){
+            case "open":
+                setShowModal("close");
+                break;
+            case "close":
+                setShowModal("open");
+                break;
+            default:
+                setShowModal("close");
+                break;
+        }
+    }
     return (
         <Container>
             <ShareBox>Share
@@ -13,7 +32,12 @@ function Main(props) {
                         :
                             <img src="/project-img/user.svg" alt="user" />
                     }
-                    <button>Share a post</button>
+                    <button
+                        onClick = {handleClick}
+                        disabled = {props.loading ? true : false}
+                        className='post-space'>
+                        Share a post
+                    </button>
                 </div>
 
                 <div>
@@ -38,6 +62,7 @@ function Main(props) {
                     </button>
                 </div>
             </ShareBox>
+
             <div>
                 <Article>
                     <SharedActor>
@@ -102,6 +127,7 @@ function Main(props) {
                     </SocialActions>
                 </Article>
             </div>
+            <PostModal />
         </Container>
     )
 };
