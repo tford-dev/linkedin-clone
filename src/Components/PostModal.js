@@ -61,7 +61,7 @@ const PostModal = (props) =>{
                         <Header>
                             <h2>Create a post</h2>
                             <button onClick={(event)=> reset(event)}>
-                                <i class="far fa-window-close"></i>
+                                <i className="far fa-window-close"></i>
                             </button>
                         </Header>
 
@@ -72,13 +72,16 @@ const PostModal = (props) =>{
                                 ) : (
                                     <img src="/project-img/user.svg" alt="user" />
                                 )}  
+                                <span>
+                                    {props.user.displayName}
+                                </span>
                             </UserInfo>
 
                             <Editor>
                                 <textarea 
                                     value={editorText}
                                     onChange={e => setEditorText(e.target.value)}
-                                    placeholder="What do you want to talk aboue?"
+                                    placeholder="What do you want to talk about?"
                                     autoFocus={true}
                                 />
                                 {
@@ -96,24 +99,26 @@ const PostModal = (props) =>{
                                                     htmlFor="file"
                                                     style={{cursor: "pointer"}}
                                                 >
-                                                    Select an image
+                                                    Click here to select an image
                                                 </label>
                                             </p>
-                                        {sharedImg && <img src={URL.createObjectURL(sharedImg)} />}
+                                            {sharedImg && <img src={URL.createObjectURL(sharedImg)} alt="shared"/>}
                                         </UploadImage>
                                     ) : (
                                         assetArea === 'media' && (
-                                            <div>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Please upload a video"
-                                                    value={videoLink}
-                                                    onChange = {e => setVideoLink(e.target.value)}
-                                                />
-                                                {videoLink && (
-                                                    <ReactPlayer width={"100%"} url={videoLink} />
-                                                )}
-                                            </div>
+                                        <div>
+                                            <input
+                                                type="text"
+                                                name="video"
+                                                id="videoLink"
+                                                placeholder="Please upload a video"
+                                                value={videoLink}
+                                                onChange = {e => setVideoLink(e.target.value)}
+                                            />
+                                            {videoLink && (
+                                                <ReactPlayer width={"100%"} url={videoLink} />
+                                            )}
+                                        </div>
                                         )
                                     )}
                             </Editor>
@@ -122,16 +127,16 @@ const PostModal = (props) =>{
                         <SharedCreation>
                             <AttachAssets>
                                 <AssetButton onClick={()=> switchAssetArea('image')}>
-                                    <img src="project-img/shared-img.png" alt="shared" />
+                                    <i className="far fa-image"></i>
                                 </AssetButton>
                                 <AssetButton onClick={()=> switchAssetArea('media')}>
-                                    <i class="fas fa-video"></i>
+                                    <i className="fab fa-youtube"></i>
                                 </AssetButton>
                             </AttachAssets>
                             
                             <ShareComment>
                                 <AssetButton>
-                                    <i class="far fa-comment"></i>
+                                    <i className="far fa-comment"></i>
                                     Anyone
                                 </AssetButton>
                             </ShareComment>
@@ -139,14 +144,15 @@ const PostModal = (props) =>{
                             <PostButton
                                 disabled = {!editorText ? true : false}
                                 onClick = {(event)=> postArticle(event)} >
+                                Post
                             </PostButton>
                         </SharedCreation>
                     </Content>
                 </Container>
             }
         </div>
-    )
-}
+    );
+};
 
 const Container = styled.div`
     position: fixed;
@@ -181,20 +187,18 @@ const Header = styled.div`
     font-size: 16px;
     line-height: 1.5;
     color: rgba(0,0,0,0.6);
-    line-height: 1.5;
-    color: rgba(0,0,0,0.6);
     font-weight: 400;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     button {
-        height: 480px;
+        height: 48px;
         width: 40px;
         min-width: auto;
         color: rgba(0,0,0,0.15);
 
-        i {
+        i, img {
             pointer-events: none;
         }
     }
@@ -228,7 +232,6 @@ const UserInfo = styled.div`
         font-weight: 600;
         font-size: 16px;
         line-height: 1.5;
-        margin-left: 5px;
     }
 `;
 
@@ -273,18 +276,18 @@ const PostButton = styled.button`
     border-radius: 20px;
     padding-left: 16px;
     padding-right: 16px;
-    background: ${props=> props.disabled ? 'rgba(0,0,0,0.5)' : '#0a66c2'};
-    color: ${props => props.disabled ? 'rgba(1,1,1,0.2' : '#fff'};
-
+    background: ${props => props.disabled ? 'rgba(0,0,0,0.5)' : '#0a66c2'};
+    color: ${props => props.disabled ? 'rgba(1,1,1,0.2)' : '#fff'};
     &:hover {
         background: ${props => props.disabled ? 'rgba(0,0,0,0.08)' : '#004182'};
-        cursor: ${props=>props.disabled ? 'none' : 'pointer'};
+        cursor: ${props => props.disabled ? 'none' : 'pointer'};
         outline: none !important;
     }
 `;
 
 const Editor = styled.div`
     padding: 12px 24px;
+
     textarea {
         width: 100%;
         min-height: 100px;

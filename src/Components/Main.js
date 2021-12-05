@@ -24,6 +24,7 @@ function Main(props) {
         }
     }
     return (
+    <div>
         <Container>
             <ShareBox>Share
                 <div>
@@ -109,27 +110,28 @@ function Main(props) {
                     </SocialCounts>
                     <SocialActions>
                         <button>
-                            <i class="far fa-thumbs-up"></i>
+                            <i className="far fa-thumbs-up"></i>
                             <span>Like</span>
                         </button>
                         <button>
-                            <i class="far fa-comment"></i>
+                            <i className="far fa-comment"></i>
                             <span>Comments</span>
                         </button>
                         <button>
-                            <i class="fas fa-share"></i>
+                            <i className="fas fa-share"></i>
                             <span>Share</span>
                         </button>
                         <button>
-                            <i class="far fa-paper-plane"></i>
+                            <i className="far fa-paper-plane"></i>
                             <span>Send</span>
                         </button>
                     </SocialActions>
                 </Article>
             </div>
-            <PostModal />
+            <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
-    )
+    </div>
+    );
 };
 
 const Container = styled.div`
@@ -276,7 +278,6 @@ const SharedActor = styled.div`
         border: none;
         top: 0;
         background: transparent;
-        outline: none;
         cursor: pointer;
     }
 `;
@@ -304,7 +305,7 @@ const SharedImg = styled.div`
 `;
 
 const SocialCounts = styled.div`
-    line-height: 1.3;
+    line-height: 100%;
     display: flex;
     align-items: flex-start;
     overflow: auto;
@@ -317,14 +318,20 @@ const SocialCounts = styled.div`
         font-size: 12px;
         button {
             display: flex;
+            border: none;
+            background: #fff;
         }
+    }
+
+    img {
+        width: 18px;
     }
 `;
 
 const SocialActions = styled.div`
     align-items: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0;
     min-height: 40px;
     padding: 4px 8px;
@@ -333,6 +340,8 @@ const SocialActions = styled.div`
         align-items: center;
         padding: 8px;
         color: #0a66c2;
+        border: none;
+        background-color: #fff;
 
         @media(min-width: 768px){
             span {

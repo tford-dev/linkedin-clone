@@ -103,7 +103,7 @@ const Photo = styled.div`
 
 const Link = styled.div`
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 16px;
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
 `;

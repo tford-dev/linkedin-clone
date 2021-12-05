@@ -180,7 +180,7 @@ const NavListWrap = styled.ul`
             bottom: 0;
             left: 0;
             position: absolute;
-            transition: transform 0.2s ease-in-ease-out;
+            transition: transform 0.2s ease-in-out;
             width: 100%;
             border-color: rgba(0, 0, 0, 0.9);
         }
@@ -199,8 +199,8 @@ const NavList = styled.li`
         font-weight: 400;
         justify-content: center;
         line-height: 1.5;
-        min-height: 52px;
-        min-width: 80px;
+        min-height: 42px;
+        min-width: 88px;
         position: relative;
         text-decoration: none;
 
@@ -226,11 +226,13 @@ const NavList = styled.li`
 `;
 
 const SignOut = styled.div`
+    cursor: pointer;
     position: absolute;
     top: 45px;
     background: white;
     border-radius: 0px 0px 5px 5px;
     width: 100px;
+    box-shadow: 2px 3px 5px -2px rgba(110, 104, 104, 0.75);
     height: 40px;
     font-size: 16px;
     transition-duration: 167ms;
@@ -242,17 +244,21 @@ const User = styled(NavList)`
     a > svg {
         width: 24px;
         border-radius: 50%;
+        padding-top: 5px;
+        height: 24px;
     }
 
     a > img {
         width: 24px;
         height: 24px;
         border-radius: 50%;
+        padding-top: 5px;
     }
 
     span {
         display: flex;
         align-items: center;
+        cursor: pointer;
     }
 
     &:hover {
@@ -265,7 +271,7 @@ const User = styled(NavList)`
 `;
 
 const Work = styled(User)`
-    border-left: 1px solid rgba(0, 0, 0, 0.08)
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
 const mapStateToProps = (state) => {
