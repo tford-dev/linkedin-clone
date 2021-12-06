@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import {React, useState} from 'react';
 import styled from 'styled-components';
 //Used react-player as a dependacy to display youtube links
