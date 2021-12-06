@@ -72,6 +72,7 @@ export const postArticleAPI = (payload) => {
         }, error => console.log(error.code),
         async () => {
             const downloadURL = await upload.snapshot.ref.getDownloadURL();
+            //Schema for uploading image files
             db.collection("articles").add({
                 actor: {
                     description: payload.user.email,
@@ -86,6 +87,7 @@ export const postArticleAPI = (payload) => {
             });
             dispatch(setLoading(false));
         });
+    //Schema for uploading videos
     } else if(payload.video){
         db.collection('articles').add({
             actor: {
