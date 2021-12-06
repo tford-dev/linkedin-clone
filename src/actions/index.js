@@ -1,4 +1,5 @@
-import  {auth, provider, storage, db} from "../firebase";
+import  {auth, provider, storage} from "../firebase";
+import  { db } from "../firebase";
 import {SET_USER, SET_LOADING_STATUS, GET_ARTCICLES} from "./actionType";
 
 export const setUser = (payload) => ({
@@ -56,10 +57,10 @@ export const signOutAPI = () => {
 export const postArticleAPI = (payload) => {
     return(dispatch) => {
         dispatch(setLoading(true));
-
-        if(payload.image != ''){
+        if(payload.image !== ''){
             const upload = storage
                 .ref(`images/${payload.image.name}`)
+                //sends image off
                 .put(payload.image);
             upload.on('state-changed', (snapshot)=> {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -74,7 +75,7 @@ export const postArticleAPI = (payload) => {
             db.collection("articles").add({
                 actor: {
                     description: payload.user.email,
-                    title: payload.user.displayname,
+                    title: payload.user.displayName,
                     date: payload.timestamp,
                     image: payload.user.photoURL
                 },
@@ -89,7 +90,7 @@ export const postArticleAPI = (payload) => {
         db.collection('articles').add({
             actor: {
                 description: payload.user.email,
-                title: payload.user.displayname,
+                title: payload.user.displayName,
                 date: payload.timestamp,
                 image: payload.user.photoURL,
             },

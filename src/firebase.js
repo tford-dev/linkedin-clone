@@ -1,8 +1,5 @@
 //Imports of functions from SDK in Firebase
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import {getStorage} from "firebase/storage";
+import firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDrBwmgI6MYsUPa6i34ZgoGEUcGYY8wXLg",
@@ -17,7 +14,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-const storage = getStorage(firebaseApp)
+const storage = firebaseApp.storage();
 
 export {auth, provider, storage};
 export { db };

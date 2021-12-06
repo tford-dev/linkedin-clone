@@ -1,8 +1,9 @@
 import {React, useState} from 'react';
 import styled from 'styled-components';
+//Used react-player as a dependacy to display youtube links
 import ReactPlayer  from 'react-player';
 import { connect } from 'react-redux';
-import firebase from '@firebase/app-compat';
+import firebase from 'firebase';
 import {postArticleAPI} from '../actions';
 
 
@@ -28,12 +29,13 @@ const PostModal = (props) =>{
         setAssetArea(area);
     };
 
+    //Method to send img/media to firebase
     const postArticle = (e) => {
         e.preventDefault();
         if(e.target !== e.currentTarget){
             return;
         }
-
+        //schema
         const payload = {
             image: sharedImg,
             video: videoLink,
@@ -143,7 +145,7 @@ const PostModal = (props) =>{
 
                             <PostButton
                                 disabled = {!editorText ? true : false}
-                                onClick = {(event)=> postArticle(event)} >
+                                onClick={(event)=> postArticle(event)} >
                                 Post
                             </PostButton>
                         </SharedCreation>
@@ -309,7 +311,6 @@ const UploadImage = styled.div`
         width: 100%;
     }
 `;
-
 
 const mapStateToProps = (state) => {
     return {
