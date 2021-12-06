@@ -26,11 +26,14 @@ function Main(props) {
     return (
     <div>
         <Container>
-            <ShareBox>Share
+            <ShareBox>
                 <div>
-                    { props.user && props.user.photoURL ?
+                    { 
+                        //If a user is signed in, it displays their Google profile pic
+                        props.user && props.user.photoURL ?
                         <img src={props.user.photoURL} alt="user" />
                         :
+                        //If not, it displays the app's default pic
                             <img src="/project-img/user.svg" alt="user" />
                     }
                     <button
@@ -63,8 +66,10 @@ function Main(props) {
                     </button>
                 </div>
             </ShareBox>
-
-            <div>
+            <Content>
+                {   
+                    props.loading && <img src="./project-img/loading.gif" />
+                }
                 <Article>
                     <SharedActor>
                         <a>
@@ -127,7 +132,7 @@ function Main(props) {
                         </button>
                     </SocialActions>
                 </Article>
-            </div>
+            </Content>
             <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
     </div>
@@ -351,12 +356,22 @@ const SocialActions = styled.div`
     }
 `;
 
+const Content = styled.div`
+    text-align: center;
+    & > img {
+        width: 30px;
+    }
+`;
+
 const mapStateToProps = (state) => {
     return {
+        loading: state.articleState.loading,
         user: state.userState.user,
     };
 };
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

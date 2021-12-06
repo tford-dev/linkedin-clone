@@ -1,6 +1,6 @@
 import  {auth, provider, storage} from "../firebase";
 import  { db } from "../firebase";
-import {SET_USER, SET_LOADING_STATUS, GET_ARTCICLES} from "./actionType";
+import {SET_USER, SET_LOADING_STATUS, GET_ARTICLES} from "./actionType";
 
 export const setUser = (payload) => ({
     type: SET_USER,
@@ -13,7 +13,7 @@ export const setLoading = (status) => ({
 });
 
 export const getArticles = (payload) => ({
-    type: GET_ARTCICLES,
+    type: GET_ARTICLES,
     payload: payload,
 });
 
