@@ -11,6 +11,7 @@ function Leftside(props) {
                     <CardBackground />
                     <a>
                         <Photo />
+                        {/*If a user is signed in, code will display their name*/}
                         <Link>Welcome, {props.user ? props.user.displayName : ''}!</Link>
                     </a>
                     <a>
@@ -55,6 +56,7 @@ function Leftside(props) {
     )
 }
 
+//Container sets entire component to left side of Home.js
 const Container = styled.div`
     grid-area: leftside;
 `;

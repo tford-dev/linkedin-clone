@@ -7,18 +7,21 @@ import {getArticlesAPI} from '../actions/';
 import ReactPlayer from 'react-player';
 
 function Main(props) {
+    //State for modal
     const [showModal, setShowModal] = useState("close");
-
+    
+    //When page loads, retrieve articles from firebase
     useEffect(()=> {
         props.getArticles();
     }, []);
 
+    //Handler for when the modal is called
     const handleClick = (e) => {
         e.preventDefault();
         if(e.target !== e.currentTarget) {
             return;
         }
-
+        //Switch case to set the modal for if it should be opened or closed
         switch(showModal){
             case "open":
                 setShowModal("close");
@@ -48,6 +51,7 @@ function Main(props) {
                         //If not, it displays the app's default pic
                             <img src="/project-img/user.svg" alt="user" />
                     }
+                    {/*Button below has the appearance of an input.*/}
                     <button
                         onClick = {handleClick}
                         disabled = {props.loading ? true : false}
@@ -83,6 +87,8 @@ function Main(props) {
                     //Displays loading gif to DOM after user sends off a post
                     props.loading && <img src="./project-img/loading.gif" />
                 }
+
+                {/*Loops through articles in firebase to display data into DOM*/}
                 {props.articles.length !== 0 &&
                 props.articles.map((article, key)=> (
                     <Article key={key}>
@@ -106,6 +112,7 @@ function Main(props) {
                         <SharedImg>
                             <a>
                                 {
+                                    //Logic for which media is displayed
                                     !article.sharedImg && article.video ?
                                         (<ReactPlayer width={'100%'} url={article.video} />)
                                     :
@@ -131,6 +138,7 @@ function Main(props) {
                         </li>
                         <li>
                             <a>
+                                {/*App has no comment functionality, I just didn't want to hard code(sort of)*/}
                                 {article.comments} comments
                             </a>
                         </li>
@@ -163,6 +171,7 @@ function Main(props) {
     );
 };
 
+//Container sets entire component to middle of Home.js
 const Container = styled.div`
     grid-area: main;
 `

@@ -9,6 +9,7 @@ const Login = (props) => {
     let navigate = useNavigate();
     return (
         <Container>
+            {/*If a user is authenticated, this redirects them to the /home route */}
             {props.user && navigate('home')}
             <Nav className="login__navbar">
                 <a href="/">
@@ -27,6 +28,7 @@ const Login = (props) => {
                     <img src="project-img/login-hero.svg" alt="hero-banner" />
                 </Hero>
                 <Form>
+                    {/*Listener below is for the google authentication API*/}
                     <Google onClick={()=> props.signIn()}>
                         <img src="project-img/google.svg" alt="google logo" />
                         Sign in with Google

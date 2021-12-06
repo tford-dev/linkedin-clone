@@ -1,4 +1,5 @@
 import {React, useEffect} from 'react'
+//App uses react router v6
 import {BrowserRouter as Router, Route, Routes as Switch} from "react-router-dom";
 import './App.css';
 import Login from './Components/Login';

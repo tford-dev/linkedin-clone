@@ -1,4 +1,5 @@
-/* eslint-disable */ 
+/* eslint-disable */
+//This file holds all components in the /home route
 import {React} from 'react';
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -12,11 +13,12 @@ function Home(props) {
     let navigate = useNavigate();
     return (
         <Container>
-            {!props.user && navigate('/')}
+            {//If there is no user authenticated, redirect them to the /Login route
+                !props.user && navigate('/')}
             <Header />
             <Section>
                 <h5>
-                    <a>Hiring in a hurry? - </a>
+                    <a href="https://terrance-ford.herokuapp.com/" target="_blank">Hiring in a hurry? - </a>
                 </h5>
                 <p>
                     Find talented pros in record time with Upwork and keep business moving.
@@ -72,6 +74,7 @@ const Section = styled.section`
 
 const Layout = styled.div`
     display: grid;
+    //Organizes components on /Home route
     grid-template-areas: "leftside main rightside";
     grid-template-columns: minmax(0, 5fr) minmax()(0, 12fr) minmax(300px, 7fr);
     column-gap: 25px;

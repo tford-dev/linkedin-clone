@@ -1,4 +1,5 @@
-/* eslint-disable */ 
+/* eslint-disable */
+//This component is only for design purposes 
 import React from 'react';
 import styled from "styled-components";
 
@@ -44,6 +45,7 @@ function Rightside() {
     )
 }
 
+//Container sets entire component to right side of Home.js
 const Container = styled.div`
     grid-area: rightside;
 `;

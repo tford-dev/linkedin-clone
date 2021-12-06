@@ -62,7 +62,8 @@ const Header = (props) => {
 
                         <User>
                             <a>
-                                { props.user && props.user.photoURL ?
+                                {//If a google user is signed in, use their google photo, if not then use the default SVG
+                                    props.user && props.user.photoURL ?
                                     <img src={props.user.photoURL} alt="user" />
                                     :
                                         <img src="project-img/user.svg" alt="user" />
@@ -72,7 +73,7 @@ const Header = (props) => {
                                     <img src="project-img/down-icon.svg" alt="down" />
                                 </span>
                             </a>
-
+                            {/*Signout button that drops beneath profile pic*/}
                             <SignOut onClick={()=> props.signOut()}>
                                 <a>Sign Out</a>
                             </SignOut>

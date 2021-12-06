@@ -14,16 +14,20 @@ const PostModal = (props) =>{
     const [videoLink, setVideoLink] = useState('');
     const [assetArea, setAssetArea] = useState('');
 
+    //Handler for what kind of data is in input
     const handleChange = (e) => {
         const image = e.target.files[0];
         if(image === '' || image === undefined)
-        {
+        {   
+            //alerts user if invalid data
             alert(`not an image, the is a ${typeof image}`);
             return;
         }
+        //Puts input into state
         setSharedImg(image);
     };
 
+    //area in method is the data
     const switchAssetArea = (area) => {
         setSharedImg('');
         setVideoLink('');
@@ -44,7 +48,9 @@ const PostModal = (props) =>{
             description: editorText,
             timestamp: firebase.firestore.Timestamp.now(),
         };
+        //Request is sent off to firebase
         props.postArticle(payload);
+        //Takes data out of input
         reset(e);
     };
 
@@ -58,11 +64,13 @@ const PostModal = (props) =>{
 
     return (
         <div>
+            {/*If modal is open ...*/}
             {props.showModal === "open" &&
                 <Container>
                     <Content>
                         <Header>
                             <h2>Create a post</h2>
+                            {/*Button below closes and resets input in modal*/}
                             <button onClick={(event)=> reset(event)}>
                                 <i className="far fa-window-close"></i>
                             </button>
@@ -70,6 +78,7 @@ const PostModal = (props) =>{
 
                         <SharedContent>
                             <UserInfo>
+                                {/*If a user is signed in, show their google profile pic, if not show default SVG*/}
                                 {props.user.photoURL ? (
                                     <img src={props.user.photoURL} />
                                 ) : (
@@ -81,6 +90,7 @@ const PostModal = (props) =>{
                             </UserInfo>
 
                             <Editor>
+                                {/*Text area is solely for description*/}
                                 <textarea 
                                     value={editorText}
                                     onChange={e => setEditorText(e.target.value)}
@@ -129,6 +139,7 @@ const PostModal = (props) =>{
 
                         <SharedCreation>
                             <AttachAssets>
+                                {/*Buttons below set state for what media is chosen*/}
                                 <AssetButton onClick={()=> switchAssetArea('image')}>
                                     <i className="far fa-image"></i>
                                 </AssetButton>
@@ -144,6 +155,7 @@ const PostModal = (props) =>{
                                 </AssetButton>
                             </ShareComment>
 
+                            {/*Button is enabled only if text is in textarea*/}
                             <PostButton
                                 disabled = {!editorText ? true : false}
                                 onClick={(event)=> postArticle(event)} >
