@@ -106,6 +106,8 @@ export const postArticleAPI = (payload) => {
 };
 }
 
+
+//Retrieves posts from firebase
 export const getArticlesAPI = () =>{
     return (dispatch) => {
         let payload;

@@ -1,10 +1,17 @@
-import {React, useState} from 'react';
-import styled from "styled-components";
-import PostModal from "./PostModal";
+import {React, useEffect, useState} from 'react';
+import styled from 'styled-components';
+import PostModal from './PostModal';
 import { connect } from 'react-redux';
+import {getArticlesAPI} from '../actions/';
+import ReactPlayer from 'react-player';
 
 function Main(props) {
     const [showModal, setShowModal] = useState("close");
+
+    useEffect(()=> {
+        props.getArticles();
+    }, []);
+
     const handleClick = (e) => {
         e.preventDefault();
         if(e.target !== e.currentTarget) {
@@ -25,6 +32,10 @@ function Main(props) {
     }
     return (
     <div>
+    {
+        //If there are no posts(articles) then display text in p tags
+        props.articles.length === 0 ?
+        <p>Be the first to post!</p> :
         <Container>
             <ShareBox>
                 <div>
@@ -68,29 +79,39 @@ function Main(props) {
             </ShareBox>
             <Content>
                 {   
+                    //Displays loading gif to DOM after user sends off a post
                     props.loading && <img src="./project-img/loading.gif" />
                 }
-                <Article>
-                    <SharedActor>
-                        <a>
-                            <img src="/project-img/user.svg" alt="user" />
-                            <div>
-                                <span>Title</span>
-                                <span>Info</span>
-                                <span>Date</span>
-                            </div>
-                        </a>
-                        <button>
-                            <img src="/project-img/ellipsis.svg" alt="ellipsis" />
-                        </button>
-                    </SharedActor>
+                {props.articles.length !== 0 &&
+                props.articles.map((article, key)=> (
+                    <Article key={key}>
+                        <SharedActor>
+                            <a>
+                                <img src={article.actor.image} alt="user" />
+                                <div>
+                                    <span>{article.actor.title}</span>
+                                    <span>{article.actor.description}</span>
+                                    <span>{article.actor.date.toDate().toLocaleDateString()}</span>
+                                </div>
+                            </a>
+                            <button>
+                                <img src="/project-img/ellipsis.svg" alt="ellipsis" />
+                            </button>
+                        </SharedActor>
 
-                    <Description>
-                        Description
-                    </Description>
+                        <Description>
+                            {article.description}
+                        </Description>
                         <SharedImg>
                             <a>
-                                <img src="/project-img/shared-image.png" alt="Shared" />
+                                {
+                                    !article.sharedImg && article.video ?
+                                        (<ReactPlayer width={'100%'} url={article.video} />)
+                                    :
+                                    (
+                                        article.sharedImg && <img src={article.sharedImg} alt="Shared" />
+                                    )
+                                }
                             </a>
                         </SharedImg>
                     <SocialCounts>
@@ -104,12 +125,12 @@ function Main(props) {
                                     src="https://static-exp1.licdn.com/sc/h/b1dl5jk88euc7e9ri50xy5qo8"
                                     alt="Clap"
                                 />
-                                <span>75</span>
+                                <span>51</span>
                             </button>
                         </li>
                         <li>
                             <a>
-                                2 comments
+                                {article.comments} comments
                             </a>
                         </li>
                     </SocialCounts>
@@ -132,9 +153,11 @@ function Main(props) {
                         </button>
                     </SocialActions>
                 </Article>
+                ))}    
             </Content>
             <PostModal showModal={showModal} handleClick={handleClick} />
         </Container>
+        }
     </div>
     );
 };
@@ -367,11 +390,12 @@ const mapStateToProps = (state) => {
     return {
         loading: state.articleState.loading,
         user: state.userState.user,
+        articles: state.articleState.articles,
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-
+    getArticles: () => dispatch(getArticlesAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
