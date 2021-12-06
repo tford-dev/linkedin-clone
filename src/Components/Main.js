@@ -36,10 +36,6 @@ function Main(props) {
     }
     return (
     <div>
-    {
-        //If there are no posts(articles) then display text in p tags
-        props.articles.length === 0 ?
-        <p>Be the first to post!</p> :
         <Container>
             <ShareBox>
                 <div>
@@ -82,6 +78,11 @@ function Main(props) {
                     </button>
                 </div>
             </ShareBox>
+    {
+        //If there are no posts(articles) then display text in p tags
+        props.articles.length === 0 ?
+        <p>Be the first to post!</p> :
+        
             <Content>
                 {   
                     //Displays loading gif to DOM after user sends off a post
@@ -164,9 +165,9 @@ function Main(props) {
                 </Article>
                 ))}    
             </Content>
-            <PostModal showModal={showModal} handleClick={handleClick} />
-        </Container>
         }
+        <PostModal showModal={showModal} handleClick={handleClick} />
+        </Container>
     </div>
     );
 };
